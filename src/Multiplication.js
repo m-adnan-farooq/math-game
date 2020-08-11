@@ -22,7 +22,7 @@ const useStyles1 = makeStyles({
     },
 });
 
-export const Addition = ({ mathsLevel }) => {
+export const Multiplication = ({ mathsLevel }) => {
     const classes1 = useStyles1();
     const [maths, level] = mathsLevel;
     const [response, setResponse] = useState()
@@ -50,9 +50,8 @@ export const Addition = ({ mathsLevel }) => {
 
 
     function checkAnswer() {
-        if (response == number[0] + number[1]) {
+        if (response == number[0] - number[1]) {
             setScore(score += 1)
-            console.log(typeof(level))
             document.getElementById('answer').value = '';
             if (level == '1') {
                 setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
@@ -69,7 +68,6 @@ export const Addition = ({ mathsLevel }) => {
             else {
                 setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
             }
-
         }
     }
     return (
@@ -80,9 +78,9 @@ export const Addition = ({ mathsLevel }) => {
             <Card className={classes1.root}>
                 <CardContent>
                     <Typography variant="h6" className={classes1.pos}>
-                        Level-{level} Addition
+                        Level-{level} Multiplication
                         <span className='score'>Score: {score}</span>
-                        <span className='number'>{number[0]} + {number[1]} = </span>
+                        <span className='number'>{number[0]} x {number[1]} = </span>
                         <Input id='answer' type='text' onChange={(e) => setResponse(e.target.value)} placeholder='Answer' />
                         <Button className='button' autoFocus={true} variant="contained" color='primary' onClick={checkAnswer}>Submit</Button>
                     </Typography>

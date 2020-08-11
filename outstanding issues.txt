@@ -1,0 +1,4 @@
+Division - Number generations issue (divisible)
+Empty selection issue
+Add Routers
+Make it a Progressive Web App

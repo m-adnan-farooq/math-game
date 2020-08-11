@@ -3,23 +3,23 @@ import FormControl from '@material-ui/core/FormControl';
 import { NativeSelect } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import {Addition} from './Addition';
+import { Addition } from './Addition';
+import { Subtraction } from './Subtraction';
+import { Multiplication } from './Multiplication'
+import { Division } from './Division';
 
-    var maths;
-    var level;
-    var mathLevel;
+var maths;
+var level;
+var mathLevel;
 export const Main = () => {
     const levels = [1, 2, 3, 4, 5];
     const mathematics = ['Addition', 'Subtraction', 'Multiplication', 'Division'];
-
-    
 
     const [screen, setScreen] = useState(false);
 
     const handleChangeMaths = (mathsValue) => {
         maths = mathsValue;
     }
-
     const handleChangeLevel = (levelValue) => {
         level = levelValue;
     }
@@ -56,8 +56,28 @@ export const Main = () => {
             </div>
         )
 
-    else return(
-        <Addition mathsLevel = {mathLevel}/>
+    else if (maths == 'Addition')
+        return (
+            <Addition mathsLevel={mathLevel} />
+        )
+
+    else if (maths == 'Subtraction')
+        return (
+            <Subtraction mathsLevel={mathLevel} />
+        )
+        
+    else if (maths == 'Multiplication')
+    return (
+        <Multiplication mathsLevel={mathLevel} />
     )
+
+    // Needs working
+    else if (maths == 'Division')
+        return (
+            <Division mathsLevel={mathLevel} />
+        )
+            // else{
+            //     alert('Please make a valid selection')
+            // }
 }
 
