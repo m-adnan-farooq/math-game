@@ -37,6 +37,7 @@ export const Main = () => {
                     <NativeSelect className='selectLevel' defaultValue='' onChange={(e) => handleChangeMaths(e.target.value)}>
                         <option >Select Game</option>
                         {mathematics.map((key, index) =>
+                            
                             <option key={index} value={mathematics[index]}>
                                 {mathematics[index]}
                             </option>
@@ -44,6 +45,7 @@ export const Main = () => {
                     </NativeSelect>
                 </FormControl><FormControl>
                     <NativeSelect className='selectLevel' defaultValue='' onChange={(e) => handleChangeLevel(e.target.value)}>
+                        
                         <option >Select Level</option>
                         {levels.map((key, index) =>
                             <option key={index} value={levels[index]}>

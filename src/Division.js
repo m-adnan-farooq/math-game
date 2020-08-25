@@ -32,19 +32,69 @@ export const Division = ({ mathsLevel }) => {
 
     useEffect(() => {
         if (level == '1') {
-            setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
+            var a =0;
+            var b = 0;
+            do{
+                a = Math.ceil(Math.random() * 10)
+                b = Math.ceil(Math.random() * 10)
+                setNumber([a,b])
+            }
+            while(
+                a%b !== 0
+            )
+            // setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
         }
         else if (level == '2') {
-            setNumber([Math.ceil(Math.random() * 30), Math.ceil(Math.random() * 30)])
+            var a =0;
+            var b = 0;
+            do{
+                a = Math.ceil(Math.random() * 30)
+                b = Math.ceil(Math.random() * 30)
+                setNumber([a,b])
+            }
+            while(
+                a%b !== 0
+            )
+            // setNumber([Math.ceil(Math.random() * 30), Math.ceil(Math.random() * 30)])
         }
         else if (level == '3') {
-            setNumber([Math.ceil(Math.random() * 60), Math.ceil(Math.random() * 60)])
+            var a = 0;
+            var b = 0;
+            do{
+                a = Math.ceil(Math.random() * 60)
+                b = Math.ceil(Math.random() * 60)
+                setNumber([a,b])
+            }
+            while(
+                a%b !== 0
+            )
+            // setNumber([Math.ceil(Math.random() * 60), Math.ceil(Math.random() * 60)])
         }
         else if (level == '4') {
-            setNumber([Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100)])
+            var a = 0;
+            var b = 0;
+            do{
+                a = Math.ceil(Math.random() * 100)
+                b = Math.ceil(Math.random() * 100)
+                setNumber([a,b])
+            }
+            while(
+                a%b !==0
+            )
+            // setNumber([Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100)])
         }
         else {
-            setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
+            var a = 0;
+            var b = 0;
+            do{
+                a = Math.ceil(Math.random() * 500)
+                b = Math.ceil(Math.random() * 500)
+                setNumber([a,b])
+            }
+            while(
+                a%b !== 0
+            )
+            // setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
         }
     }, [])
 
@@ -55,19 +105,69 @@ export const Division = ({ mathsLevel }) => {
             console.log(typeof(level))
             document.getElementById('answer').value = '';
             if (level == '1') {
-                setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
+                var a =0;
+                var b = 0;
+                do{
+                    a = Math.ceil(Math.random() * 10)
+                    b = Math.ceil(Math.random() * 10)
+                    setNumber([a,b])
+                }
+                while(
+                    a%b !== 0
+                )
+                // setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
             }
             else if (level == '2') {
-                setNumber([Math.ceil(Math.random() * 30), Math.ceil(Math.random() * 30)])
+                var a =0;
+                var b = 0;
+                do{
+                    a = Math.ceil(Math.random() * 30)
+                    b = Math.ceil(Math.random() * 30)
+                    setNumber([a,b])
+                }
+                while(
+                    a%b !== 0
+                )
+                // setNumber([Math.ceil(Math.random() * 30), Math.ceil(Math.random() * 30)])
             }
             else if (level == '3') {
-                setNumber([Math.ceil(Math.random() * 60), Math.ceil(Math.random() * 60)])
+                var a = 0;
+                var b = 0;
+                do {
+                    a = Math.ceil(Math.random()*60)
+                    b = Math.ceil(Math.random()*60)
+                    setNumber([a,b])
+                }
+                while(
+                    a%b !== 0
+                )
+                // setNumber([Math.ceil(Math.random() * 60), Math.ceil(Math.random() * 60)])
             }
             else if (level == '4') {
-                setNumber([Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100)])
+                var a = 0;
+                var b = 0;
+                do{
+                    a = Math.ceil(Math.random()*100)
+                    b = Math.ceil(Math.random()*100)
+                    setNumber([a,b])
+                }
+                while(
+                    a%b !==0
+                )
+                // setNumber([Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100)])
             }
             else {
-                setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
+                var a = 0;
+                var b = 0;
+                do{
+                    a = Math.ceil(Math.random()*500)
+                    b = Math.ceil(Math.random()*500)
+                    setNumber([a,b])
+                }
+                while(
+                    a%b !== 0
+                )
+                // setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
             }
 
         }
