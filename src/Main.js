@@ -24,9 +24,12 @@ export const Main = () => {
         level = levelValue;
     }
     const submit = () => {
-        mathLevel = [maths, level];
+        if (maths == undefined || level == undefined){
+        alert('Please make a valid selection to proceed')}
+        
+        else{mathLevel = [maths, level];
         setScreen(true);
-    }
+    }}
     if (screen === false)
         return (
             <div>
@@ -57,7 +60,6 @@ export const Main = () => {
                 <Button variant='contained' className='btn-main' onClick={submit}>Submit</Button>
             </div>
         )
-
     else if (maths == 'Addition')
         return (
             <Addition mathsLevel={mathLevel} />
