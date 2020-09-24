@@ -3,8 +3,6 @@ body{
   background-position: 30vw 15vh;
   background-repeat: no-repeat;
   background-color: #2F2FA2;
-
-
   /* background-size: cover; */
 }
 .heading{
@@ -43,4 +41,8 @@ body{
   position: absolute !important;
   left: 3vw;
   top: 25vh;
+}
+
+* {
+  color:white;
 }

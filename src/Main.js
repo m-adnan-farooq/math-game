@@ -36,22 +36,22 @@ export const Main = () => {
                 <Typography variant="h4" className='heading'>
                     <span className='heading'>Maths Game for Kids</span>
                 </Typography>
-                <FormControl color='primary'>
-                    <NativeSelect className='selectLevel' defaultValue='' onChange={(e) => handleChangeMaths(e.target.value)}>
-                        <option >Select Game</option>
+                <FormControl color="primary">
+                    <NativeSelect id="native-select" style = {{color:"white"}} className='selectLevel' defaultValue='' onChange={(e) => handleChangeMaths(e.target.value)}>
+                        <option style = {{color:"black"}}>Select Game</option>
                         {mathematics.map((key, index) =>
                             
-                            <option key={index} value={mathematics[index]}>
+                            <option style = {{color:"black"}} key={index} value={mathematics[index]}>
                                 {mathematics[index]}
                             </option>
                         )}
-                    </NativeSelect>
+                    </NativeSelect> 
                 </FormControl><FormControl>
-                    <NativeSelect className='selectLevel' defaultValue='' onChange={(e) => handleChangeLevel(e.target.value)}>
+                    <NativeSelect id="native-select" style = {{color:"white"}} className='selectLevel' defaultValue='' onChange={(e) => handleChangeLevel(e.target.value)}>
                         
-                        <option >Select Level</option>
+                        <option style = {{color:"black"}}>Select Level</option>
                         {levels.map((key, index) =>
-                            <option key={index} value={levels[index]}>
+                            <option style = {{color:"black"}} key={index} value={levels[index]}>
                                 {levels[index]}
                             </option>
                         )}

@@ -29,7 +29,8 @@ export const Addition = ({ mathsLevel }) => {
 
     const [number, setNumber] = useState([]);
     var [score, setScore] = useState(0);
-
+    var gameOver = false;
+    console.log(gameOver);
     useEffect(() => {
         if (level == '1') {
             setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
@@ -52,7 +53,7 @@ export const Addition = ({ mathsLevel }) => {
     function checkAnswer() {
         if (response == number[0] + number[1]) {
             setScore(score += 1)
-            console.log(typeof(level))
+            console.log(gameOver)
             document.getElementById('answer').value = '';
             if (level == '1') {
                 setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
@@ -72,7 +73,17 @@ export const Addition = ({ mathsLevel }) => {
 
         }
     }
-    return (
+    if(score ==2){
+        gameOver = true;
+    }
+    if(gameOver === true)
+    return(
+        <div>
+            Game Over
+        </div>
+    )
+    
+    else return (
         <div>
             <Typography variant="h4" className='heading'>
                 <span className='heading'>Maths Game for Kids</span>
