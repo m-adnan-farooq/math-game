@@ -17,7 +17,7 @@ body{
   top: 30%;
 }
 
-.heading{
+.heading, #game-over, #final-score{
   font-size: 5vw;
   margin: 30px;
   padding: 10px;

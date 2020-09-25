@@ -29,8 +29,8 @@ export const Addition = ({ mathsLevel }) => {
 
     const [number, setNumber] = useState([]);
     var [score, setScore] = useState(0);
+    var [count, setCount] = useState(0);
     var gameOver = false;
-    console.log(gameOver);
     useEffect(() => {
         if (level == '1') {
             setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
@@ -51,38 +51,64 @@ export const Addition = ({ mathsLevel }) => {
 
 
     function checkAnswer() {
-        if (response == number[0] + number[1]) {
-            setScore(score += 1)
-            console.log(gameOver)
-            document.getElementById('answer').value = '';
-            if (level == '1') {
-                setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
-            }
-            else if (level == '2') {
-                setNumber([Math.ceil(Math.random() * 30), Math.ceil(Math.random() * 30)])
-            }
-            else if (level == '3') {
-                setNumber([Math.ceil(Math.random() * 60), Math.ceil(Math.random() * 60)])
-            }
-            else if (level == '4') {
-                setNumber([Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100)])
+        var answer = document.getElementById('answer').value;
+        if (answer === '') {
+            alert('Please provide an answer before submission')
+        }
+        else {
+            setCount(count + 1);
+            if (response == number[0] + number[1]) {
+                setScore(score += 1)
+                document.getElementById('answer').value = '';
+                if (level == '1') {
+                    setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
+                }
+                else if (level == '2') {
+                    setNumber([Math.ceil(Math.random() * 30), Math.ceil(Math.random() * 30)])
+                }
+                else if (level == '3') {
+                    setNumber([Math.ceil(Math.random() * 60), Math.ceil(Math.random() * 60)])
+                }
+                else if (level == '4') {
+                    setNumber([Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100)])
+                }
+                else {
+                    setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
+                }
+
             }
             else {
-                setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
+                alert('Incorrect Answer')
+                document.getElementById('answer').value = '';
+                if (level == '1') {
+                    setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
+                }
+                else if (level == '2') {
+                    setNumber([Math.ceil(Math.random() * 30), Math.ceil(Math.random() * 30)])
+                }
+                else if (level == '3') {
+                    setNumber([Math.ceil(Math.random() * 60), Math.ceil(Math.random() * 60)])
+                }
+                else if (level == '4') {
+                    setNumber([Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100)])
+                }
+                else {
+                    setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
+                }
             }
-
         }
     }
-    if(score ==2){
+    if (count === 2) {
         gameOver = true;
     }
-    if(gameOver === true)
-    return(
-        <div>
-            Game Over
-        </div>
-    )
-    
+    if (gameOver === true)
+        return (
+            <div>
+                <span id="game-over">Game Over</span>
+                <p id="final-score">You scored {score}</p>
+            </div>
+        )
+
     else return (
         <div>
             <Typography variant="h4" className='heading'>
@@ -94,7 +120,7 @@ export const Addition = ({ mathsLevel }) => {
                         Level-{level} Addition
                         <span className='score'>Score: {score}</span>
                         <span className='number'>{number[0]} + {number[1]} = </span>
-                        <Input id='answer' type='text' onChange={(e) => setResponse(e.target.value)} placeholder='Answer' />
+                        <Input id='answer' type='number' onChange={(e) => setResponse(e.target.value)} placeholder='Answer' />
                         <Button className='button' autoFocus={true} variant="contained" color='primary' onClick={checkAnswer}>Submit</Button>
                     </Typography>
                 </CardContent>
