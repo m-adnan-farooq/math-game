@@ -7,7 +7,7 @@ body{
   /* background-size: cover; */
 }
 
-.heading{
+.heading, #game-over, #final-score{
   font-size: 5vw;
   margin: 30px;
   padding: 10px;
