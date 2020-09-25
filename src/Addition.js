@@ -49,7 +49,11 @@ export const Addition = ({ mathsLevel }) => {
         }
     }, [])
 
-
+    function checkAnswerEnter(e) {
+        if (e.key === 'Enter') {
+            checkAnswer();
+        }
+    }
     function checkAnswer() {
         var answer = document.getElementById('answer').value;
         if (answer === '') {
@@ -98,6 +102,7 @@ export const Addition = ({ mathsLevel }) => {
             }
         }
     }
+    
     if (count === 2) {
         gameOver = true;
     }
@@ -108,7 +113,7 @@ export const Addition = ({ mathsLevel }) => {
                 <p id="final-score">You scored {score}</p>
             </div>
         )
-
+    
     else return (
         <div>
             <Typography variant="h4" className='heading'>
@@ -120,8 +125,8 @@ export const Addition = ({ mathsLevel }) => {
                         Level-{level} Addition
                         <span className='score'>Score: {score}</span>
                         <span className='number'>{number[0]} + {number[1]} = </span>
-                        <Input id='answer' type='number' onChange={(e) => setResponse(e.target.value)} placeholder='Answer' />
-                        <Button className='button' autoFocus={true} variant="contained" color='primary' onClick={checkAnswer}>Submit</Button>
+                        <Input id='answer' type='number' onChange={(e) => setResponse(e.target.value)}  onKeyDown={checkAnswerEnter} placeholder='Answer' />
+                        <Button id='button' autoFocus={true} variant="contained" color='primary' onClick={checkAnswer}>Submit</Button>
                     </Typography>
                 </CardContent>
             </Card>

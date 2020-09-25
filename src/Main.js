@@ -24,6 +24,7 @@ export const Main = () => {
   const handleChangeLevel = (levelValue) => {
     level = levelValue;
   };
+ 
   const submit = () => {
     if (maths == undefined || level == undefined) {
       alert("Please make a valid selection to proceed");
