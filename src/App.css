@@ -1,10 +1,20 @@
 
 body{
-  background-image: url('./images/Math3.png');
-  background-position: 30vw 15vh;
-  background-repeat: no-repeat;
-  background-color: #2F2FA2;
-  /* background-size: cover; */
+  background-image: url('./images/kids-background.jpg');
+  /* background-position: 30vw 15vh; */
+  /* background-repeat: no-repeat;  */
+  /* background-color: #2F2FA2; */
+  background-size: 100% 100vh;
+  /* background-position: center; */
+  /* background-attachment: fixed; */
+
+}
+
+#teacher-image {
+  position: absolute;
+  height: 70%;
+  right: 10%;
+  top: 30%;
 }
 
 .heading{
@@ -12,16 +22,27 @@ body{
   margin: 30px;
   padding: 10px;
   color: #F64C72;
+  color: yellowgreen;
   font-family: 'Frosty';
+  text-align: center;
+}
+
+#selection-fields {
+  text-align: center;
+  width: 30%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-around;
+  margin-top: 5%;
 }
 
 .selectLevel{
-  width: 10vw;
-  color: #F64C72;
-  margin: 30px 0px 30px 40px;
+  /* color:yellowgreen !important; */
 }
+
 .selectLevel:focus{
-  background-color: #F64C72;
+  background-color: whitesmoke;
   font-weight: 900;
 }
 
@@ -38,18 +59,18 @@ body{
   padding: 10px !important;
   margin-top: 20px !important;
 }
-.btn-main{
-  background-color: #F64C72 !important;
-  color: #2F2FA2 !important;
-  font-weight: 600 !important;
-  position: absolute !important;
-  left: 3vw;
-  top: 25vh;
+
+#btn-div {
+  margin-top: 5%;
+  text-align: center;
 }
 
-* {
-  color:white;
+.btn-main{
+  background-color: yellowgreen !important;
+  color:white !important;
+  font-weight: 600 !important;
 }
+
 
 @font-face {
   font-family: 'Frosty';
