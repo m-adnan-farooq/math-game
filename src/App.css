@@ -77,7 +77,7 @@ body{
   text-align: center;
 }
 
-.btn-main{
+.btn-main, #reset-button{
   background-color: yellowgreen !important;
   color:white !important;
   font-weight: 600 !important;
@@ -93,7 +93,10 @@ body{
   right: 11%;
 }
 
-
+#incorrect-answer {
+  color: red;
+  display: none;
+}
 @font-face {
   font-family: 'Frosty';
   src: url('FROSTY.TTF');

@@ -11,11 +11,12 @@ import { findByLabelText } from "@testing-library/react";
 
 var maths;
 var level;
+var questions;
 var mathLevel;
 export const Main = () => {
   const levels = [1, 2, 3, 4, 5];
   const mathematics = ["Addition", "Subtraction", "Multiplication", "Division"];
-
+  const count = [5,10,15,20]
   const [screen, setScreen] = useState(false);
 
   const handleChangeMaths = (mathsValue) => {
@@ -24,12 +25,15 @@ export const Main = () => {
   const handleChangeLevel = (levelValue) => {
     level = levelValue;
   };
+  const handleChangeQuestion = (questionValue) => {
+    questions = questionValue;
+  };
  
   const submit = () => {
     if (maths == undefined || level == undefined) {
       alert("Please make a valid selection to proceed");
     } else {
-      mathLevel = [maths, level];
+      mathLevel = [maths, level, questions];
       setScreen(true);
     }
   };
@@ -37,8 +41,8 @@ export const Main = () => {
     return (
       <div className="bodyDiv">
         <img id="teacher-image" src={require("./images/Math3.png")} />
-        <Typography variant="p" className="heading">
-          <p className="heading">Maths Game for Kids</p>
+        <Typography variant="h6" className="heading">
+          <h6 className="heading">Maths Game for Kids</h6>
         </Typography>
         <div id="selection-fields">
           <FormControl color="primary">
@@ -48,10 +52,9 @@ export const Main = () => {
               defaultValue=""
               onChange={(e) => handleChangeMaths(e.target.value)}
             >
-              <option style={{ color: "yellowgreen" }}>Select Game</option>
+              <option>Select Game</option>
               {mathematics.map((key, index) => (
                 <option
-                  style={{ color: "yellowgreen" }}
                   key={index}
                   value={mathematics[index]}
                 >
@@ -67,14 +70,31 @@ export const Main = () => {
               defaultValue=""
               onChange={(e) => handleChangeLevel(e.target.value)}
             >
-              <option style={{ color: "yellowgreen" }}>Select Level</option>
+              <option>Select Level</option>
               {levels.map((key, index) => (
                 <option
-                  style={{ color: "yellowgreen" }}
                   key={index}
                   value={levels[index]}
                 >
                   {levels[index]}
+                </option>
+              ))}
+            </NativeSelect>
+          </FormControl>
+          <FormControl>
+            <NativeSelect
+              id="native-select"
+              className="selectLevel"
+              defaultValue=""
+              onChange={(e) => handleChangeQuestion(e.target.value)}
+            >
+              <option>No. of Questions</option>
+              {count.map((key, index) => (
+                <option
+                  key={index}
+                  value={count[index]}
+                >
+                  {count[index]}
                 </option>
               ))}
             </NativeSelect>
@@ -94,7 +114,7 @@ export const Main = () => {
     return <Multiplication mathsLevel={mathLevel} />;
   // Needs working
   else if (maths == "Division") return <Division mathsLevel={mathLevel} />;
-  // else{
-  //     alert('Please make a valid selection')
-  // }
+  else{
+      alert('Please make a valid selection')
+  }
 };

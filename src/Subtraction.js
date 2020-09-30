@@ -6,12 +6,12 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import MinusSign from'./svgs/MinusSign'
+import { GameOver } from './GameOver';
+import numberGenerator from './NumberGenerator';
 
 const useStyles1 = makeStyles({
     root: {
         textAlign: "center",
-        // minWidth: 25,
-        // maxWidth: 300,
         width: '30%',
         margin: "5% auto auto auto",
         backgroundColor: "yellowgreen",
@@ -26,67 +26,75 @@ const useStyles1 = makeStyles({
 
 export const Subtraction = ({ mathsLevel }) => {
     const classes1 = useStyles1();
-    const [maths, level] = mathsLevel;
+    const [maths, level, questions] = mathsLevel;
+    console.log(maths)
     const [response, setResponse] = useState()
-
+    var [count, setCount] = useState(0);
+    var gameOver = false;
     const [number, setNumber] = useState([]);
     var [score, setScore] = useState(0);
 
     useEffect(() => {
-        if (level == '1') {
-            setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
-        }
-        else if (level == '2') {
-            setNumber([Math.ceil(Math.random() * 30), Math.ceil(Math.random() * 30)])
-        }
-        else if (level == '3') {
-            setNumber([Math.ceil(Math.random() * 60), Math.ceil(Math.random() * 60)])
-        }
-        else if (level == '4') {
-            setNumber([Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100)])
-        }
-        else {
-            setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
-        }
+        numberGenerator(level, [number,setNumber]);
     }, [])
 
-
-    function checkAnswer() {
-        if (response == number[0] - number[1]) {
-            setScore(score += 1)
-            console.log(typeof(level))
-            document.getElementById('answer').value = '';
-            if (level == '1') {
-                setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
-            }
-            else if (level == '2') {
-                setNumber([Math.ceil(Math.random() * 30), Math.ceil(Math.random() * 30)])
-            }
-            else if (level == '3') {
-                setNumber([Math.ceil(Math.random() * 60), Math.ceil(Math.random() * 60)])
-            }
-            else if (level == '4') {
-                setNumber([Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100)])
-            }
-            else {
-                setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
-            }
-
+    function checkAnswerEnter(e) {
+        if (e.key === 'Enter') {
+            checkAnswer();
         }
     }
-    return (
+
+    function checkAnswer() {
+        var answer = document.getElementById('answer').value;
+        if (answer === ''){
+            alert('Please provide an answer before submission')
+        }
+        else{
+            
+            if (response == number[0] - number[1]) {
+                setCount(count +1)
+                setScore(score += 1)
+                document.getElementById('answer').value = '';
+                numberGenerator(level, [number,setNumber]);
+            }
+                else {
+                    document.getElementById('answer').value = '';
+                    document.getElementById("incorrect-answer").style.display="block";
+                    document.getElementById("button").style.marginTop="0%";
+                    setTimeout(
+                        ()=>{
+                            
+                            document.getElementById("incorrect-answer").style.display="none";
+                            document.getElementById("button").style.marginTop="10%";
+                            numberGenerator(level, [number,setNumber]);                    
+                            setCount(count + 1);
+                      }
+                    ,1000)
+                }
+            }
+        }
+    if (count === parseInt(questions)) {
+        gameOver = true;
+    }
+    if (gameOver === true){
+        return (            
+            <GameOver score={score} questions={questions}/>
+        )}
+    else return (
         <div className="bodyDiv">
-            <Typography variant="p" className='heading'>
-                <p className='heading'>Maths Game for Kids</p>
+            <Typography variant="h1" className='heading'>
+                <h1 className='heading'>Maths Game for Kids</h1>
             </Typography>
             <Card className={classes1.root}>
                 <CardContent>
                     <Typography variant="h6" className={classes1.pos}>
                         Level-{level} Subtraction
+                        <h6>Question No. {count+1}</h6> 
                         <span className='score'>Score: {score}</span>
                         <span className='number'>{number[0]} - {number[1]} = </span>
-                        <Input id='answer' type='text' onChange={(e) => setResponse(e.target.value)} placeholder='Answer' />
+                        <Input id='answer' type='number' onChange={(e) => setResponse(e.target.value)} onKeyUp={checkAnswerEnter} placeholder='Answer' />
                         <br/>
+                        <p id="incorrect-answer">Incorrect !!!</p>
                         <Button id='button' autoFocus={true} variant="contained" color='primary' onClick={checkAnswer}>Submit</Button>
                     </Typography>
                 </CardContent>
