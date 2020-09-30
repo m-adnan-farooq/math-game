@@ -7,7 +7,6 @@ import { Addition } from "./Addition";
 import { Subtraction } from "./Subtraction";
 import { Multiplication } from "./Multiplication";
 import { Division } from "./Division";
-import { findByLabelText } from "@testing-library/react";
 
 var maths;
 var level;
@@ -30,7 +29,7 @@ export const Main = () => {
   };
  
   const submit = () => {
-    if (maths == undefined || level == undefined) {
+    if (maths === undefined || level === undefined || questions === undefined) {
       alert("Please make a valid selection to proceed");
     } else {
       mathLevel = [maths, level, questions];
@@ -40,9 +39,9 @@ export const Main = () => {
   if (screen === false)
     return (
       <div className="bodyDiv">
-        <img id="teacher-image" src={require("./images/Math3.png")} />
+        <img id="teacher-image" src={require("./images/Math3.png")} alt="Teacher"/>
         <Typography variant="h6" className="heading">
-          <h6 className="heading">Maths Game for Kids</h6>
+          <div className="heading">Maths Game for Kids</div>
         </Typography>
         <div id="selection-fields">
           <FormControl color="primary">
@@ -107,13 +106,12 @@ export const Main = () => {
         </div>
       </div>
     );
-  else if (maths == "Addition") return <Addition mathsLevel={mathLevel} />;
-  else if (maths == "Subtraction")
+  else if (maths === "Addition") return <Addition mathsLevel={mathLevel} />;
+  else if (maths === "Subtraction")
     return <Subtraction mathsLevel={mathLevel} />;
-  else if (maths == "Multiplication")
+  else if (maths === "Multiplication")
     return <Multiplication mathsLevel={mathLevel} />;
-  // Needs working
-  else if (maths == "Division") return <Division mathsLevel={mathLevel} />;
+  else if (maths === "Division") return <Division mathsLevel={mathLevel} />;
   else{
       alert('Please make a valid selection')
   }

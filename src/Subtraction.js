@@ -51,7 +51,7 @@ export const Subtraction = ({ mathsLevel }) => {
         }
         else{
             
-            if (response == number[0] - number[1]) {
+            if (parseInt(response) === number[0] - number[1]) {
                 setCount(count +1)
                 setScore(score += 1)
                 document.getElementById('answer').value = '';
@@ -62,8 +62,7 @@ export const Subtraction = ({ mathsLevel }) => {
                     document.getElementById("incorrect-answer").style.display="block";
                     document.getElementById("button").style.marginTop="0%";
                     setTimeout(
-                        ()=>{
-                            
+                        ()=>{      
                             document.getElementById("incorrect-answer").style.display="none";
                             document.getElementById("button").style.marginTop="10%";
                             numberGenerator(level, [number,setNumber]);                    
@@ -82,14 +81,16 @@ export const Subtraction = ({ mathsLevel }) => {
         )}
     else return (
         <div className="bodyDiv">
-            <Typography variant="h1" className='heading'>
-                <h1 className='heading'>Maths Game for Kids</h1>
+            <Typography variant="h6" className="heading">
+                <div className="heading">Maths Game for Kids</div>
             </Typography>
             <Card className={classes1.root}>
                 <CardContent>
                     <Typography variant="h6" className={classes1.pos}>
                         Level-{level} Subtraction
-                        <h6>Question No. {count+1}</h6> 
+                    </Typography>
+                    <Typography variant="h6" className={classes1.pos}>
+                        Question No. {count+1} 
                         <span className='score'>Score: {score}</span>
                         <span className='number'>{number[0]} - {number[1]} = </span>
                         <Input id='answer' type='number' onChange={(e) => setResponse(e.target.value)} onKeyUp={checkAnswerEnter} placeholder='Answer' />

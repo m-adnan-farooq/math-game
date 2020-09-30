@@ -52,7 +52,7 @@ export const Multiplication = ({ mathsLevel }) => {
         }
         else{
             
-        if (response == number[0] * number[1]) {
+        if (parseInt(response) === number[0] * number[1]) {
             setCount(count+1)
             setScore(score += 1)
             document.getElementById('answer').value = '';
@@ -85,14 +85,16 @@ export const Multiplication = ({ mathsLevel }) => {
 
     else return (
         <div className="bodyDiv">
-            <Typography variant="p" className='heading'>
-                <h1 className='heading'>Maths Game for Kids</h1>
+            <Typography variant="h6" className="heading">
+                <div className="heading">Maths Game for Kids</div>
             </Typography>
             <Card className={classes1.root}>
                 <CardContent>
                     <Typography variant="h6" className={classes1.pos}>
                         Level-{level} Multiplication
-                        <p>Question No. {count+1}</p> 
+                    </Typography>
+                    <Typography variant="h6" className={classes1.pos}>
+                        Question No. {count+1}
                         <span className='score'>Score: {score}</span>
                         <span className='number'>{number[0]} x {number[1]} = </span>
                         <Input id='answer' type='number' onChange={(e) => setResponse(e.target.value)} onKeyUp={checkAnswerEnter} placeholder='Answer' />

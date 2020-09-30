@@ -42,10 +42,6 @@ body{
   margin-top: 5%;
 }
 
-.selectLevel{
-  /* color:yellowgreen !important; */
-}
-
 .selectLevel:focus{
   background-color: whitesmoke;
   font-weight: 900;

@@ -15,5 +15,6 @@ function numberGenerator(level, numberState) {
     else {
         setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
     }
+    console.log(number)
 }
 export default numberGenerator;

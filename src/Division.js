@@ -33,8 +33,9 @@ export const Division = ({ mathsLevel }) => {
     const [number, setNumber] = useState([]);
     var [score, setScore] = useState(0);
 
+    
     useEffect(() => {
-        if (level == '1') {
+        if (level === '1') {
             var a =0;
             var b = 0;
             do{
@@ -45,11 +46,10 @@ export const Division = ({ mathsLevel }) => {
             while(
                 a%b !== 0
             )
-            // setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
         }
-        else if (level == '2') {
-            var a =0;
-            var b = 0;
+        else if (level === '2') {
+            a =0;
+            b = 0;
             do{
                 a = Math.ceil(Math.random() * 30)
                 b = Math.ceil(Math.random() * 30)
@@ -58,11 +58,10 @@ export const Division = ({ mathsLevel }) => {
             while(
                 a%b !== 0
             )
-            // setNumber([Math.ceil(Math.random() * 30), Math.ceil(Math.random() * 30)])
         }
-        else if (level == '3') {
-            var a = 0;
-            var b = 0;
+        else if (level === '3') {
+            a = 0;
+            b = 0;
             do{
                 a = Math.ceil(Math.random() * 60)
                 b = Math.ceil(Math.random() * 60)
@@ -71,11 +70,10 @@ export const Division = ({ mathsLevel }) => {
             while(
                 a%b !== 0
             )
-            // setNumber([Math.ceil(Math.random() * 60), Math.ceil(Math.random() * 60)])
         }
-        else if (level == '4') {
-            var a = 0;
-            var b = 0;
+        else if (level === '4') {
+            a = 0;
+            b = 0;
             do{
                 a = Math.ceil(Math.random() * 100)
                 b = Math.ceil(Math.random() * 100)
@@ -84,11 +82,10 @@ export const Division = ({ mathsLevel }) => {
             while(
                 a%b !==0
             )
-            // setNumber([Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100)])
         }
         else {
-            var a = 0;
-            var b = 0;
+            a = 0;
+            b = 0;
             do{
                 a = Math.ceil(Math.random() * 500)
                 b = Math.ceil(Math.random() * 500)
@@ -97,7 +94,6 @@ export const Division = ({ mathsLevel }) => {
             while(
                 a%b !== 0
             )
-            // setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
         }
     }, [])
 
@@ -113,12 +109,11 @@ export const Division = ({ mathsLevel }) => {
             alert('Please provide an answer before submission')
         }
         else {
-        if (response == number[0] / number[1]) {
+        if (parseInt(response) === number[0] / number[1]) {
             setCount(count+1)
             setScore(score += 1)
-            console.log(typeof(level))
             document.getElementById('answer').value = '';
-            if (level == '1') {
+            if (level === '1') {
                 var a =0;
                 var b = 0;
                 do{
@@ -129,11 +124,10 @@ export const Division = ({ mathsLevel }) => {
                 while(
                     a%b !== 0
                 )
-                // setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
             }
-            else if (level == '2') {
-                var a =0;
-                var b = 0;
+            else if (level === '2') {
+                a =0;
+                b = 0;
                 do{
                     a = Math.ceil(Math.random() * 30)
                     b = Math.ceil(Math.random() * 30)
@@ -142,11 +136,10 @@ export const Division = ({ mathsLevel }) => {
                 while(
                     a%b !== 0
                 )
-                // setNumber([Math.ceil(Math.random() * 30), Math.ceil(Math.random() * 30)])
             }
-            else if (level == '3') {
-                var a = 0;
-                var b = 0;
+            else if (level === '3') {
+                a = 0;
+                b = 0;
                 do {
                     a = Math.ceil(Math.random()*60)
                     b = Math.ceil(Math.random()*60)
@@ -155,11 +148,10 @@ export const Division = ({ mathsLevel }) => {
                 while(
                     a%b !== 0
                 )
-                // setNumber([Math.ceil(Math.random() * 60), Math.ceil(Math.random() * 60)])
             }
-            else if (level == '4') {
-                var a = 0;
-                var b = 0;
+            else if (level === '4') {
+                a = 0;
+                b = 0;
                 do{
                     a = Math.ceil(Math.random()*100)
                     b = Math.ceil(Math.random()*100)
@@ -168,11 +160,10 @@ export const Division = ({ mathsLevel }) => {
                 while(
                     a%b !==0
                 )
-                // setNumber([Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100)])
             }
             else {
-                var a = 0;
-                var b = 0;
+                a = 0;
+                b = 0;
                 do{
                     a = Math.ceil(Math.random()*500)
                     b = Math.ceil(Math.random()*500)
@@ -181,88 +172,79 @@ export const Division = ({ mathsLevel }) => {
                 while(
                     a%b !== 0
                 )
-                // setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
             }
         }
         else {
             document.getElementById('answer').value = '';
-                    document.getElementById("incorrect-answer").style.display="block";
-                    document.getElementById("button").style.marginTop="0%";
-                    setTimeout(
-                        ()=>{
-                            document.getElementById("incorrect-answer").style.display="none";
-                            document.getElementById("button").style.marginTop="10%";
-                            setCount(count+1)
-                            // setScore(score += 1)
-                            // console.log(typeof(level))
-                            // document.getElementById('answer').value = '';
-                            if (level == '1') {
-                                var a =0;
-                                var b = 0;
-                                do{
-                                    a = Math.ceil(Math.random() * 10)
-                                    b = Math.ceil(Math.random() * 10)
-                                    setNumber([a,b])
-                                }
-                                while(
-                                    a%b !== 0
-                                )
-                                // setNumber([Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10)])
+            document.getElementById("incorrect-answer").style.display="block";
+            document.getElementById("button").style.marginTop="0%";
+            setTimeout(
+                ()=>{
+                    document.getElementById("incorrect-answer").style.display="none";
+                    document.getElementById("button").style.marginTop="10%";
+                    setCount(count+1)
+                    if (level === '1') {
+                        var a =0;
+                        var b = 0;
+                        do{
+                            a = Math.ceil(Math.random() * 10)
+                            b = Math.ceil(Math.random() * 10)
+                            setNumber([a,b])
+                        }
+                        while(
+                            a%b !== 0
+                        )
+                    }
+                    else if (level === '2') {
+                        a =0;
+                        b = 0;
+                        do{
+                            a = Math.ceil(Math.random() * 30)
+                            b = Math.ceil(Math.random() * 30)
+                            setNumber([a,b])
+                        }
+                        while(
+                            a%b !== 0
+                        )
+                    }
+                    else if (level === '3') {
+                        a = 0;
+                        b = 0;
+                        do {
+                            a = Math.ceil(Math.random()*60)
+                            b = Math.ceil(Math.random()*60)
+                            setNumber([a,b])
+                        }
+                        while(
+                            a%b !== 0
+                        )
+                    }
+                    else if (level === '4') {
+                        a = 0;
+                        b = 0;
+                        do{
+                            a = Math.ceil(Math.random()*100)
+                            b = Math.ceil(Math.random()*100)
+                            setNumber([a,b])
+                        }
+                        while(
+                            a%b !==0
+                        )
+                    }
+                    else {
+                        a = 0;
+                        b = 0;
+                        do{
+                            a = Math.ceil(Math.random()*500)
+                            b = Math.ceil(Math.random()*500)
+                            setNumber([a,b])
+                        }
+                        while(
+                            a%b !== 0
+                        )
+                    }                  
                             }
-                            else if (level == '2') {
-                                var a =0;
-                                var b = 0;
-                                do{
-                                    a = Math.ceil(Math.random() * 30)
-                                    b = Math.ceil(Math.random() * 30)
-                                    setNumber([a,b])
-                                }
-                                while(
-                                    a%b !== 0
-                                )
-                                // setNumber([Math.ceil(Math.random() * 30), Math.ceil(Math.random() * 30)])
-                            }
-                            else if (level == '3') {
-                                var a = 0;
-                                var b = 0;
-                                do {
-                                    a = Math.ceil(Math.random()*60)
-                                    b = Math.ceil(Math.random()*60)
-                                    setNumber([a,b])
-                                }
-                                while(
-                                    a%b !== 0
-                                )
-                                // setNumber([Math.ceil(Math.random() * 60), Math.ceil(Math.random() * 60)])
-                            }
-                            else if (level == '4') {
-                                var a = 0;
-                                var b = 0;
-                                do{
-                                    a = Math.ceil(Math.random()*100)
-                                    b = Math.ceil(Math.random()*100)
-                                    setNumber([a,b])
-                                }
-                                while(
-                                    a%b !==0
-                                )
-                                // setNumber([Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100)])
-                            }
-                            else {
-                                var a = 0;
-                                var b = 0;
-                                do{
-                                    a = Math.ceil(Math.random()*500)
-                                    b = Math.ceil(Math.random()*500)
-                                    setNumber([a,b])
-                                }
-                                while(
-                                    a%b !== 0
-                                )
-                                // setNumber([Math.ceil(Math.random() * 500), Math.ceil(Math.random() * 500)])
-                            }                  
-                                    }
-                                    ,1000)
+                            ,1000)
         }
         }
     }
@@ -276,13 +258,15 @@ export const Division = ({ mathsLevel }) => {
 
     else return (
         <div className="bodyDiv">
-            <Typography variant="p" className='heading'>
-                <h1 className='heading'>Maths Game for Kids</h1>
+            <Typography variant="h6" className="heading">
+                <div className="heading">Maths Game for Kids</div>
             </Typography>
             <Card className={classes1.root}>
                 <CardContent>
                     <Typography variant="h6" className={classes1.pos}>
                         Level-{level} Division
+                    </Typography>
+                    <Typography variant="h6" className={classes1.pos}>
                         <p>Question No. {count+1}</p> 
                         <span className='score'>Score: {score}</span>
                         <span className='number'>{number[0]} / {number[1]} = </span>
