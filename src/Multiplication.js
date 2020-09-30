@@ -5,20 +5,23 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import MultiplySign from './svgs/MultiplySign'
 
 
 const useStyles1 = makeStyles({
     root: {
         textAlign: "center",
-        minWidth: 25,
-        maxWidth: 300,
-        margin: 40,
-        backgroundColor: "#F64C72",
+        // minWidth: 25,
+        // maxWidth: 300,
+        width: '30%',
+        margin: "5% auto auto auto",
+        backgroundColor: "yellowgreen",
+        boxShadow: 'white 10px 10px 20px 5px'
     },
     pos: {
         marginBottom: 12,
         fontWeight: 600,
-        color: "#242582",
+        color: "white",
     },
 });
 
@@ -50,7 +53,7 @@ export const Multiplication = ({ mathsLevel }) => {
 
 
     function checkAnswer() {
-        if (response == number[0] - number[1]) {
+        if (response == number[0] * number[1]) {
             setScore(score += 1)
             document.getElementById('answer').value = '';
             if (level == '1') {
@@ -71,9 +74,9 @@ export const Multiplication = ({ mathsLevel }) => {
         }
     }
     return (
-        <div>
-            <Typography variant="h4" className='heading'>
-                <span className='heading'>Maths Game for Kids</span>
+        <div className="bodyDiv">
+            <Typography variant="p" className='heading'>
+                <p className='heading'>Maths Game for Kids</p>
             </Typography>
             <Card className={classes1.root}>
                 <CardContent>
@@ -82,10 +85,12 @@ export const Multiplication = ({ mathsLevel }) => {
                         <span className='score'>Score: {score}</span>
                         <span className='number'>{number[0]} x {number[1]} = </span>
                         <Input id='answer' type='text' onChange={(e) => setResponse(e.target.value)} placeholder='Answer' />
-                        <Button className='button' autoFocus={true} variant="contained" color='primary' onClick={checkAnswer}>Submit</Button>
+                        <br/>
+                        <Button id='button' autoFocus={true} variant="contained" color='primary' onClick={checkAnswer}>Submit</Button>
                     </Typography>
                 </CardContent>
             </Card>
+            <MultiplySign/>
         </div>
     )
 } 

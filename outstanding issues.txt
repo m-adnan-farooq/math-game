@@ -1,9 +1,7 @@
 Division - Number generations issue (divisible) - Done
 Empty selection issue - Done
-Multiple Options 
-Add Routers
 Make it a Progressive Web App
-submit to work on enter button
+submit to work on enter button - Done
 winning screen
 Add alert on wrong answer
 Proceed on wrong answers and show score at the end - Done

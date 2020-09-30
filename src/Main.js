@@ -35,10 +35,10 @@ export const Main = () => {
   };
   if (screen === false)
     return (
-      <div>
+      <div className="bodyDiv">
         <img id="teacher-image" src={require("./images/Math3.png")} />
-        <Typography variant="h4" className="heading">
-          <span className="heading">Maths Game for Kids</span>
+        <Typography variant="p" className="heading">
+          <p className="heading">Maths Game for Kids</p>
         </Typography>
         <div id="selection-fields">
           <FormControl color="primary">

@@ -5,20 +5,22 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-
+import PlusSign from './svgs/PlusSign';
 
 const useStyles1 = makeStyles({
     root: {
         textAlign: "center",
-        minWidth: 25,
-        maxWidth: 300,
-        margin: 40,
-        backgroundColor: "#F64C72",
+        // minWidth: 25,
+        // maxWidth: 300,
+        width: '30%',
+        margin: "5% auto auto auto",
+        backgroundColor: "yellowgreen",
+        boxShadow: 'white 10px 10px 20px 5px'
     },
     pos: {
         marginBottom: 12,
         fontWeight: 600,
-        color: "#242582",
+        color: "white",
     },
 });
 
@@ -115,9 +117,9 @@ export const Addition = ({ mathsLevel }) => {
         )
     
     else return (
-        <div>
-            <Typography variant="h4" className='heading'>
-                <span className='heading'>Maths Game for Kids</span>
+        <div className="bodyDiv">
+            <Typography variant="p" className='heading'>
+                <p className='heading'>Maths Game for Kids</p>
             </Typography>
             <Card className={classes1.root}>
                 <CardContent>
@@ -126,10 +128,12 @@ export const Addition = ({ mathsLevel }) => {
                         <span className='score'>Score: {score}</span>
                         <span className='number'>{number[0]} + {number[1]} = </span>
                         <Input id='answer' type='number' onChange={(e) => setResponse(e.target.value)}  onKeyDown={checkAnswerEnter} placeholder='Answer' />
+                        <br/>
                         <Button id='button' autoFocus={true} variant="contained" color='primary' onClick={checkAnswer}>Submit</Button>
                     </Typography>
                 </CardContent>
             </Card>
+            <PlusSign/>
         </div>
     )
 } 

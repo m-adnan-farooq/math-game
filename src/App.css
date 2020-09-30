@@ -2,12 +2,16 @@
 body{
   background-image: url('./images/kids-background.jpg');
   /* background-position: 30vw 15vh; */
-  /* background-repeat: no-repeat;  */
+  background-repeat: no-repeat; 
   /* background-color: #2F2FA2; */
   background-size: 100% 100vh;
   /* background-position: center; */
   /* background-attachment: fixed; */
+  margin: 0;
+}
 
+.bodyDiv {
+  height: 100vh;
 }
 
 #teacher-image {
@@ -18,10 +22,11 @@ body{
 }
 
 .heading, #game-over, #final-score{
-  font-size: 5vw;
-  margin: 30px;
-  padding: 10px;
-  color: #F64C72;
+  font-size: 5rem;
+  margin-top: 0%;
+  /* margin: 30px; */
+  /* padding: 10px; */
+  /* color: #F64C72; */
   color: yellowgreen;
   font-family: 'Frosty';
   text-align: center;
@@ -52,12 +57,19 @@ body{
 }
 
 #answer{
-  padding: 10px !important;
-  color: #242582 !important;
+  margin-top: 10%;
+  color: black !important;
 }
-.button{
+/* .button{
   padding: 10px !important;
   margin-top: 20px !important;
+} */
+
+#button {
+  background-color: whitesmoke !important;
+  color: yellowgreen;
+  margin-top: 10%;
+  font-weight: bolder;
 }
 
 #btn-div {
@@ -71,8 +83,20 @@ body{
   font-weight: 600 !important;
 }
 
+.svgs {
+  border-radius: 50%;
+  box-shadow: white 10px 10px 50px 20px;
+  height: 22.5%;
+  width: 10%;
+  position: absolute;
+  top: 42%;
+  right: 11%;
+}
+
 
 @font-face {
   font-family: 'Frosty';
   src: url('FROSTY.TTF');
 };
+
+
