@@ -1,23 +1,34 @@
 import { Button } from "@material-ui/core";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Main } from "./Main";
 
+export function GameOver({ score, questions }) {
 
 
-export function GameOver ({score, questions}) {
-  function reset(){
-    return(
-      <Main/>
-      )
+  const resetScreen = (e) => {
+    e.preventDefault()
+    console.log(returnMain)
+    console.log("Reset Run")
+    document.getElementById("reset-button").addEventListener("click", function () { setreturnMain(!returnMain) })
   }
-  return(
-    <div>
-      <p id="game-over">Game Over</p>
-      <p id="final-score">
-        You scored {score} out of {questions}
-      </p>
-      <div style={{textAlign:"center"}}>
-        <Button id='reset-button' autoFocus={true} variant="contained" color='primary' onClick={reset}>Reset</Button></div>
-    
-    </div>)
+
+
+  const [returnMain, setreturnMain] = useState(true)
+  if (returnMain === true) {
+    return (
+      <div>
+        <p id="game-over">Game Over</p>
+        <p id="final-score">
+          You scored {score} out of {questions}
+        </p>
+        <div style={{ textAlign: "center" }}>
+          <Button id='reset-button' autoFocus={true} variant="contained" color='primary' onClick={resetScreen}>Reset</Button>
+        </div>
+      </div>
+    )
+  }
+
+  else if (returnMain === false) {
+    return <Main />
+  }
 };
