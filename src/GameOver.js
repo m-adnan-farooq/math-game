@@ -1,5 +1,5 @@
 import { Button } from "@material-ui/core";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Main } from "./Main";
 
 export function GameOver({ score, questions }) {
@@ -7,8 +7,6 @@ export function GameOver({ score, questions }) {
 
   const resetScreen = (e) => {
     e.preventDefault()
-    console.log(returnMain)
-    console.log("Reset Run")
     document.getElementById("reset-button").addEventListener("click", function () { setreturnMain(!returnMain) })
   }
 
